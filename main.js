@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 
@@ -23,15 +24,29 @@ const mystery4 = [4, 9, 2, 9, 8, 7, 7, 1, 6, 9, 2, 1, 7, 0, 9, 3];
 const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 
 // An array of all the arrays above
-const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3,
-  invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5,
+const batch = [
+  valid1,
+  valid2,
+  valid3,
+  valid4,
+  valid5,
+  invalid1,
+  invalid2,
+  invalid3,
+  invalid4,
+  invalid5,
+  mystery1,
+  mystery2,
+  mystery3,
+  mystery4,
+  mystery5,
 ];
 
 // Add your functions below:
 
 function validateCred(numArray) {
   let total = 0;
-  for (let i = numArray.length - 1; i >= 0; i--) {
+  for (let i = numArray.length - 1; i >= 0; i -= 1) {
     let currentValue = numArray[i];
     if ((numArray.length - 1 - i) % 2 === 1) {
       currentValue *= 2;
@@ -44,16 +59,15 @@ function validateCred(numArray) {
 
   return total % 10 === 0;
 }
-//testing validateCred function
-//console.log(validateCred(valid1));
-//console.log(validateCred(invalid1));
-
+// testing validateCred function
+// console.log(validateCred(valid1));
+// console.log(validateCred(invalid1));
 
 function findInvalidCards(cards) {
   const invalid = [];
 
   for (let i = 0; i < cards.length; i += 1) {
-    let currentCard = cards[i];
+    const currentCard = cards[i];
 
     if (!validateCred(currentCard)) {
       invalid.push(currentCard);
@@ -61,9 +75,8 @@ function findInvalidCards(cards) {
   }
   return invalid;
 }
-//testing findInvalidCards()
-//console.log(findInvalidCards(batch));
-
+// testing findInvalidCards()
+// console.log(findInvalidCards(batch));
 
 function idInvalidCardCompanies(invalidBatch) {
   const companies = [];
@@ -96,11 +109,11 @@ function idInvalidCardCompanies(invalidBatch) {
   }
   return companies;
 }
-//testing idInvalidCardCompanies
-//console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+// testing idInvalidCardCompanies
+// console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
-function convertToArray(str){
+function convertToArray(str) {
   return Array.from(str);
 }
-//testing convertToArrayFunction
-//console.log(convertToArray('6011288932868677'));
+// testing convertToArrayFunction
+// console.log(convertToArray('6011288932868677'));
